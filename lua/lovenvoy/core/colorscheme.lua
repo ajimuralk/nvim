@@ -1,0 +1,8 @@
+--local status, _ = pcall(vim.cmd, "colorscheme material")
+local status, _ = pcall(vim.cmd, "colorscheme nord")
+if not status then
+	print("Colorscheme not found")
+	return
+end
+
+vim.g.material_theme_style = "ocean-community"
