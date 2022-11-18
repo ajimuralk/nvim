@@ -32,9 +32,7 @@ return packer.startup(function(use)
 
 	use("nvim-lua/plenary.nvim") -- lua functions that many plugins use
 
-	use("arcticicestudio/nord-vim")
-
-	--use("marko-cerovac/material.nvim")
+	use("shaunsingh/nord.nvim")
 
 	use({ "kaicataldo/material.vim", branch = "main" })
 
