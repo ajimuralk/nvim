@@ -18,6 +18,11 @@ end
 
 local keymap = vim.keymap -- for conciseness
 
+local path_to_elixirls = vim.fn.expand("/Users/lajimura/Applications/elixir-ls/language_server.sh")
+if not path_to_elixirls then
+	return
+end
+
 -- enable keybinds only for when lsp server available
 local on_attach = function(client, bufnr)
 	-- keybind options
@@ -113,6 +118,25 @@ lspconfig["sumneko_lua"].setup({
 					[vim.fn.stdpath("config") .. "/lua"] = true,
 				},
 			},
+		},
+	},
+})
+
+vim.api.nvim_command("au BufWritePost *.exs lua vim.lsp.buf.format { async = true }")
+vim.api.nvim_command("au BufWritePost *.ex lua vim.lsp.buf.format { async = true }")
+lspconfig["elixirls"].setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+	init_options = { documentFormatting = true },
+	filetypes = { "elixir" },
+	cmd = { path_to_elixirls },
+	settings = {
+		elixirLS = {
+			dialyzerEnabled = false,
+			-- Choose to turn off the auto dep fetching feature.
+			-- It often get's into a weird state that requires deleting
+			-- the .elixir_ls directory and restarting your editor.
+			fetchDeps = false,
 		},
 	},
 })
