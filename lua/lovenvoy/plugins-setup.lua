@@ -116,12 +116,7 @@ return packer.startup(function(use)
 
 	use("lewis6991/impatient.nvim")
 
-	use({
-		"goolord/alpha-nvim",
-		config = function()
-			require("alpha").setup(require("alpha.themes.dashboard").config)
-		end,
-	})
+	use("goolord/alpha-nvim")
 
 	if packer_bootstrap then
 		require("packer").sync()
