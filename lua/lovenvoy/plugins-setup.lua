@@ -67,7 +67,19 @@ return packer.startup(function(use)
 
 	-- fuzzy finding w/ telescope
 	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" }) -- dependency for better sorting performance
-	use({ "nvim-telescope/telescope.nvim", branch = "0.1.x" }) -- fuzzy finder
+	-- use({ "nvim-telescope/telescope.nvim", branch = "0.1.x" }) -- fuzzy finder
+	--
+	use({ "sindrets/diffview.nvim", requires = "nvim-lua/plenary.nvim" })
+
+	use({
+		"nvim-telescope/telescope.nvim",
+		requires = { { "nvim-lua/plenary.nvim" }, { "kdheepak/lazygit.nvim" } },
+		config = function()
+			require("telescope").load_extension("lazygit")
+		end,
+	})
+	use({ "nvim-telescope/telescope-file-browser.nvim" })
+	use("kdheepak/lazygit.nvim")
 
 	-- autocompletion
 	use("hrsh7th/nvim-cmp") -- completion plugin
