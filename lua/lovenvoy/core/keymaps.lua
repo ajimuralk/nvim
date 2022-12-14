@@ -41,8 +41,8 @@ keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>") -- find string u
 keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<cr>") -- list open buffers in current neovim instance
 keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<cr>") -- list available help tags
 keymap.set("n", "<leader>fr", "<cmd>Telescope oldfiles<cr>") -- list recent files
-keymap.set("n", "<leader>fd", "<cmd>Telescope diagnostics<cr>") -- list recent files
-keymap.set("n", "<leader>ft", "<cmd>Telescope treesitter<cr>") -- list recent files
+keymap.set("n", "<leader>fd", "<cmd>Telescope diagnostics<cr>") -- list workspace diagnostics files
+keymap.set("n", "<leader>ft", "<cmd>Telescope treesitter<cr>") -- list treesitter symbols
 
 -- telescope git commands (not on youtube nvim video)
 keymap.set("n", "<leader>gc", "<cmd>Telescope git_commits<cr>") -- list all git commits (use <cr> to checkout) ["gc" for git commits]
