@@ -24,6 +24,9 @@ keymap.set("n", "<leader>tp", ":tabp<CR>") --  go to previous tab
 -- Plugin Keybinds
 ----------------------
 
+--gitblame
+keymap.set("n", "<leader>bb", ":GitBlameOpenCommitURL") --  opens the commit URL of commit under the cursor
+
 -- vim-maximizer
 keymap.set("n", "<leader>sm", ":MaximizerToggle<CR>") -- toggle split window maximization
 

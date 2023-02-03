@@ -126,6 +126,8 @@ return packer.startup(function(use)
 
 	use("goolord/alpha-nvim")
 
+	use("f-person/git-blame.nvim")
+
 	if packer_bootstrap then
 		require("packer").sync()
 	end
