@@ -10,6 +10,8 @@ if not actions_setup then
 	return
 end
 
+local lga_actions = require("telescope-live-grep-args.actions")
+
 -- configure telescope
 telescope.setup({
 	-- configure custom mappings
@@ -24,6 +26,25 @@ telescope.setup({
 				["<C-s>"] = actions.select_horizontal,
 				["<C-v>"] = actions.select_vertical,
 			},
+		},
+	},
+	extensions = {
+		live_grep_args = {
+			auto_quoting = true, -- enable/disable auto-quoting
+			-- define mappings, e.g.
+			mappings = { -- extend mappings
+				i = {
+					["<S-k>"] = lga_actions.quote_prompt(),
+					["<S-i>"] = lga_actions.quote_prompt({ postfix = " --iglob " }),
+					["<S-t>"] = lga_actions.quote_prompt({ postfix = " -t " }),
+					["<S-e>"] = lga_actions.quote_prompt({ postfix = " --type-add 'ex:*.ex' -tex " }),
+					["<S-s>"] = lga_actions.quote_prompt({ postfix = " --type-add 'exs:*.exs' -texs " }),
+				},
+			},
+			-- ... also accepts theme settings, for example:
+			-- theme = "dropdown", -- use dropdown theme
+			-- theme = { }, -- use own theme spec
+			-- layout_config = { mirror=true }, -- mirror preview pane
 		},
 	},
 })

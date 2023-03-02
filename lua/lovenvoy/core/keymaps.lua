@@ -38,8 +38,15 @@ keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>") -- toggle file explorer
 keymap.set("n", "<leader>E", ":NvimTreeFindFileToggle<CR>") -- toggle file explorer with open buffer
 
 --telescope
+-- require("telescope").load_extension("live_grep_args")
 keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>") -- find string in current working directory as you type
-keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>") -- find string in current working directory as you type
+keymap.set(
+	"n",
+	"<leader>fs",
+	"<cmd>:lua require'telescope'.extensions.live_grep_args.live_grep_args()<cr>",
+	{ noremap = true }
+)
+--keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>") -- find string in current working directory as you type
 keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>") -- find string under cursor in current working directory
 keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<cr>") -- list open buffers in current neovim instance
 keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<cr>") -- list available help tags
