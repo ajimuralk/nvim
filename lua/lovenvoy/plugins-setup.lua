@@ -134,6 +134,23 @@ return packer.startup(function(use)
 
 	use("f-person/git-blame.nvim")
 
+	-- markdown preview
+	use({ "toppair/peek.nvim", run = "deno task --quiet build:fast" })
+
+	-- fold
+	use({ "kevinhwang91/nvim-ufo", requires = "kevinhwang91/promise-async" })
+
+	-- vim.api.nvim_create_autocmd({ "FileType" }, {
+	-- 	callback = function()
+	-- 		if require("nvim-treesitter.parsers").has_parser() then
+	-- 			vim.opt.foldmethod = "expr"
+	-- 			vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+	-- 		else
+	-- 			vim.opt.foldmethod = "syntax"
+	-- 		end
+	-- 	end,
+	-- })
+
 	if packer_bootstrap then
 		require("packer").sync()
 	end
