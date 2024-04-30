@@ -18,7 +18,7 @@ end
 
 local keymap = vim.keymap -- for conciseness
 
-local path_to_elixirls = vim.fn.expand("/Users/lajimura/Applications/elixir-ls/language_server.sh")
+local path_to_elixirls = vim.fn.expand("/Users/lajimura/.elixir-ls/release/language_server.sh")
 if not path_to_elixirls then
 	return
 end
@@ -63,7 +63,7 @@ for type, icon in pairs(signs) do
 end
 
 require("lspconfig").elixirls.setup({
-	cmd = { "/Users/lajimura/Applications/elixir-ls/language_server.sh" },
+	cmd = { "/Users/lajimura/.elixir-ls/release/language_server.sh" },
 	on_attach = on_attach,
 	capabilities = capabilities,
 })
@@ -128,7 +128,7 @@ lspconfig["elixirls"].setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
 	init_options = { documentFormatting = true },
-	filetypes = { "elixir" },
+	filetypes = { "elixir", "eelixir", "ex", "exs" },
 	cmd = { path_to_elixirls },
 	settings = {
 		elixirLS = {
