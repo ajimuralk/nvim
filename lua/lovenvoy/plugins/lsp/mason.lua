@@ -25,7 +25,6 @@ mason_lspconfig.setup({
 		"elixirls",
 		"elmls",
 		"taplo",
-		"tsserver",
 		"html",
 		"cssls",
 		"tailwindcss",
