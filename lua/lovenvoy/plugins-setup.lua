@@ -71,10 +71,21 @@ return packer.startup(function(use)
 	use({ "sindrets/diffview.nvim", requires = "nvim-lua/plenary.nvim" })
 
 	use({
+		"kdheepak/lazygit.nvim",
+		-- optional for floating window border decoration
+		requires = {
+			"nvim-telescope/telescope.nvim",
+			"nvim-lua/plenary.nvim",
+		},
+		config = function()
+			require("telescope").load_extension("lazygit")
+		end,
+	})
+
+	use({
 		"nvim-telescope/telescope.nvim",
 		requires = {
 			{ "nvim-lua/plenary.nvim" },
-			{ "kdheepak/lazygit.nvim" },
 			{ "nvim-telescope/telescope-live-grep-args.nvim" },
 			{ "BurntSushi/ripgrep" },
 		},
@@ -83,7 +94,6 @@ return packer.startup(function(use)
 		end,
 	})
 	use({ "nvim-telescope/telescope-file-browser.nvim" })
-	use("kdheepak/lazygit.nvim")
 
 	-- autocompletion
 	use("hrsh7th/nvim-cmp") -- completion plugin

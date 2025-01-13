@@ -16,7 +16,7 @@ local lga_actions = require("telescope-live-grep-args.actions")
 telescope.setup({
 	-- configure custom mappings
 	defaults = {
-		layout_strategy = "vertical",
+		-- layout_strategy = "vertical",
 		layout_config = { mirror = false, prompt_position = "bottom" }, -- mirror preview pane },
 		mappings = {
 			i = {
@@ -30,11 +30,32 @@ telescope.setup({
 			},
 		},
 	},
-	-- pickers = {
-	-- 	find_files = {
-	-- 		theme = "ivy",
-	-- 	},
-	-- },
+	pickers = {
+		find_files = {
+			theme = "ivy",
+		},
+		live_grep = {
+			theme = "ivy",
+		},
+		grep_string = {
+			theme = "ivy",
+		},
+		oldfiles = {
+			theme = "ivy",
+		},
+		git_status = {
+			theme = "ivy",
+		},
+		git_commits = {
+			theme = "ivy",
+		},
+		git_branches = {
+			theme = "ivy",
+		},
+		git_stash = {
+			theme = "ivy",
+		},
+	},
 	extensions = {
 		live_grep_args = {
 			auto_quoting = true, -- enable/disable auto-quoting
@@ -49,8 +70,8 @@ telescope.setup({
 				},
 			},
 			-- ... also accepts theme settings, for example:
-			-- theme = "dropdown", -- use dropdown theme
-			layout_strategy = "vertical",
+			theme = "ivy", -- use dropdown theme
+			-- layout_strategy = "vertical",
 			layout_config = { mirror = false, prompt_position = "bottom" }, -- mirror preview pane },
 		},
 	},

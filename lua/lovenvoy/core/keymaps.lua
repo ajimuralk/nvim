@@ -4,7 +4,6 @@ local keymap = vim.keymap
 
 -- general keymaps
 
-keymap.set("i", "jk", "<ESC>")
 keymap.set("n", "<leader>hh", ":nohl<CR>")
 keymap.set("n", "x", '"_x')
 keymap.set("n", "<leader><C-s>", "<cmd>:w<CR>")
@@ -62,6 +61,7 @@ keymap.set("n", "<leader>gc", "<cmd>Telescope git_commits<cr>") -- list all git 
 keymap.set("n", "<leader>gfc", "<cmd>Telescope git_bcommits<cr>") -- list git commits for current file/buffer (use <cr> to checkout) ["gfc" for git file commits]
 keymap.set("n", "<leader>gb", "<cmd>Telescope git_branches<cr>") -- list git branches (use <cr> to checkout) ["gb" for git branch]
 keymap.set("n", "<leader>gs", "<cmd>Telescope git_status<cr>") -- list current changes per file with diff preview ["gs" for git status]
+keymap.set("n", "<leader>gh", "<cmd>Telescope git_stash<cr>") -- list current changes per file with diff preview ["gs" for git status]
 
 keymap.set("n", "<leader>fb", ":Telescope file_browser<cr>", { noremap = true })
 
@@ -113,4 +113,3 @@ end
 -- Terminal
 --vim.keymap.set('t', 'jk', [[<C-\><C-n>]])
 keymap.set("n", "<leader>T", "<cmd>:terminal<cr>")
-keymap.set("t", "jk", "<C-\\><C-n>")
