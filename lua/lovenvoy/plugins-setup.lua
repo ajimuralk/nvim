@@ -147,6 +147,9 @@ return packer.startup(function(use)
 	-- markdown preview
 	use({ "toppair/peek.nvim", run = "deno task --quiet build:fast" })
 
+	-- markdown previewer
+	use({ "OXY2DEV/markview.nvim", lazy = false })
+
 	-- fold
 	use({ "kevinhwang91/nvim-ufo", requires = "kevinhwang91/promise-async" })
 

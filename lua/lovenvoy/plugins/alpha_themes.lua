@@ -172,27 +172,27 @@ local section_mru = {
 	},
 }
 
-local buttons = {
-	type = "group",
-	val = {
-		{ type = "text", val = "Quick links", opts = { hl = "SpecialComment", position = "center" } },
-		{ type = "padding", val = 1 },
-		dashboard.button("e", "  New file", "<cmd>ene<CR>"),
-		dashboard.button("f", "  Find file", "<cmd>Telescope find_files<CR>"),
-		-- dashboard.button("SPC F", "  Live grep"),
-		dashboard.button("p", "  Projects", "<cmd>Telescope projects<CR>"),
-		dashboard.button("c", "  Configuration", "<cmd>e ~/.config/nvim/init.lua <CR>"),
-		dashboard.button("u", "  Update plugins", "<cmd>PackerSync<CR>"),
-		dashboard.button("q", "  Quit", "<cmd>qa<CR>"),
-	},
-	position = "center",
-}
+-- local buttons = {
+-- 	type = "group",
+-- 	val = {
+-- 		{ type = "text", val = "Quick links", opts = { hl = "SpecialComment", position = "center" } },
+-- 		{ type = "padding", val = 1 },
+-- 		dashboard.button("e", "  New file", "<cmd>ene<CR>"),
+-- 		dashboard.button("f", "  Find file", "<cmd>Telescope find_files<CR>"),
+-- 		-- dashboard.button("SPC F", "  Live grep"),
+-- 		dashboard.button("p", "  Projects", "<cmd>Telescope projects<CR>"),
+-- 		dashboard.button("c", "  Configuration", "<cmd>e ~/.config/nvim/init.lua <CR>"),
+-- 		dashboard.button("u", "  Update plugins", "<cmd>PackerSync<CR>"),
+-- 		dashboard.button("q", "  Quit", "<cmd>qa<CR>"),
+-- 	},
+-- 	position = "center",
+-- }
 
 local config = {
 	layout = {
-		{ type = "padding", val = 1 },
+		{ type = "padding", val = 0 },
 		default_header,
-		{ type = "padding", val = 2 },
+		{ type = "padding", val = 1 },
 		section_mru,
 		{ type = "padding", val = 2 },
 		buttons,
