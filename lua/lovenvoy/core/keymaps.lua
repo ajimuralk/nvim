@@ -35,9 +35,9 @@ keymap.set("n", "<leader>sm", ":MaximizerToggle<CR>") -- toggle split window max
 -- toggle term
 keymap.set("n", "<leader>tt", ":ToggleTerm size=20 dir=~/Desktop direction=horizontal<CR>")
 
--- nvim-tree
-keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>") -- toggle file explorer
-keymap.set("n", "<leader>E", ":NvimTreeFindFileToggle<CR>") -- toggle file explorer with open buffer
+-- neotree
+keymap.set("n", "<leader>e", ":Neotree reveal<CR>") -- toggle file explorer
+keymap.set("n", "<leader>E", ":Neotree close<CR>") -- toggle file explorer with open buffer
 
 --telescope
 -- require("telescope").load_extension("live_grep_args")
