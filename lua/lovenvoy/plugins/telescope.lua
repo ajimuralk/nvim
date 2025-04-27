@@ -16,7 +16,14 @@ local lga_actions = require("telescope-live-grep-args.actions")
 telescope.setup({
 	-- configure custom mappings
 	defaults = {
-		-- layout_strategy = "vertical",
+		file_ignore_patterns = {
+			"_build/",
+			"deps/",
+			".git/",
+			".elixir_ls/",
+			".lock",
+			"node_modules/",
+		},
 		layout_config = { mirror = false, prompt_position = "bottom" }, -- mirror preview pane },
 		mappings = {
 			i = {
