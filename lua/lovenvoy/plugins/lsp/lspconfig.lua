@@ -11,14 +11,14 @@ if not cmp_nvim_lsp_status then
 end
 
 -- import typescript plugin safely
--- local typescript_setup, typescript = pcall(require, "typescript")
--- if not typescript_setup then
--- 	return
--- end
+local typescript_setup, typescript = pcall(require, "typescript")
+if not typescript_setup then
+	return
+end
 
 local keymap = vim.keymap -- for conciseness
 
-local path_to_elixirls = vim.fn.expand("/Users/landon/.elixir-ls/release/language_server.sh")
+local path_to_elixirls = vim.fn.expand("/Users/landon/.elixir-ls/scripts/language_server.sh")
 if not path_to_elixirls then
 	return
 end
@@ -46,7 +46,8 @@ end
 -- used to enable autocompletion (assign to every lsp server config)
 local capabilities = cmp_nvim_lsp.default_capabilities()
 
-vim.diagnostic.disable()
+-- vim.diagnostic.disable()
+vim.diagnostic.config({ virtual_text = false, signs = false, underline = false })
 -- Change the Diagnostic symbols in the sign column (gutter)
 -- (not in youtube nvim video)
 local signs = { Error = " ", Warn = " ", Hint = "ﴞ ", Info = " " }
@@ -68,12 +69,12 @@ lspconfig["html"].setup({
 })
 
 -- configure typescript server with plugin
--- typescript.setup({
--- 	server = {
--- 		capabilities = capabilities,
--- 		on_attach = on_attach,
--- 	},
--- })
+typescript.setup({
+	server = {
+		capabilities = capabilities,
+		on_attach = on_attach,
+	},
+})
 --
 -- configure css server
 lspconfig["cssls"].setup({

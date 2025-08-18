@@ -125,12 +125,17 @@ return packer.startup(function(use)
 	use("neovim/nvim-lspconfig") -- easily configure language servers
 	use("hrsh7th/cmp-nvim-lsp") -- for autocompletion
 	use({ "glepnir/lspsaga.nvim", branch = "main" }) -- enhanced lsp uis
-	-- use("jose-elias-alvarez/typescript.nvim") -- additional functionality for typescript server (e.g. rename file & update imports)
+	use("jose-elias-alvarez/typescript.nvim") -- additional functionality for typescript server (e.g. rename file & update imports)
 	use("onsails/lspkind.nvim") -- vs-code like icons for autocompletion
 
 	-- formatting & linting
-	use("jose-elias-alvarez/null-ls.nvim") -- configure formatters & linters
-	use("jayp0521/mason-null-ls.nvim") -- bridges gap b/w mason & null-ls
+--use("jose-elias-alvarez/null-ls.nvim") -- configure formatters & linters
+use({
+  "nvimtools/none-ls.nvim",      -- new home
+  requires = { "nvim-lua/plenary.nvim" },
+})
+
+use("jayp0521/mason-null-ls.nvim") -- bridges gap b/w mason & null-ls
 
 	-- treesitter configuration
 	use({
@@ -172,6 +177,32 @@ return packer.startup(function(use)
 	-- 		end
 	-- 	end,
 	-- })
+  --
+
+  use({
+  "CopilotC-Nvim/CopilotChat.nvim",
+  requires = {
+    { "nvim-lua/plenary.nvim" },
+    { "nvim-telescope/telescope.nvim" },
+  },
+  config = function()
+    require("CopilotChat").setup({
+      debug = true,
+      show_help = true,
+      prompts = {
+        Explain = "Explain how it works by English language.",
+        Review = "Review the following code and provide concise suggestions.",
+        Tests = "Briefly explain how the selected code works, then generate unit tests.",
+        Refactor = "Refactor the code to improve clarity and readability.",
+      },
+      -- Optionally set proxy and build functions if necessary
+      proxy = "******", -- Optional: Set your proxy if needed
+      build = function()
+        vim.notify("Please update the remote plugins by running ':UpdateRemotePlugins', then restart Neovim.")
+      end,
+    })
+  end,
+})
 
 	if packer_bootstrap then
 		require("packer").sync()
