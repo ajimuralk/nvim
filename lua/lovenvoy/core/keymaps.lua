@@ -48,7 +48,7 @@ keymap.set(
 	"<cmd>:lua require'telescope'.extensions.live_grep_args.live_grep_args()<cr>",
 	{ noremap = true }
 )
---keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>") -- find string in current working directory as you type
+keymap.set("n", "<leader>fw", "<cmd>Telescope current_buffer_fuzzy_find<cr>") -- find string in current buffer
 keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>") -- find string under cursor in current working directory
 keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<cr>") -- list open buffers in current neovim instance
 keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<cr>") -- list available help tags
@@ -73,6 +73,8 @@ keymap.set("n", "<leader>gV", ":DiffviewClose<cr>", { noremap = true })
 
 -- restart lsp server (not on youtube nvim video)
 keymap.set("n", "<leader>rs", ":LspRestart<CR>") -- mapping to restart lsp if necessary
+
+keymap.set("n", "<leader>fp", "<cmd>lua vim.lsp.buf.format()<CR>", { noremap = true, silent = true })
 
 -- Mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
