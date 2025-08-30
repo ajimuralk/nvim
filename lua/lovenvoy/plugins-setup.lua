@@ -179,29 +179,41 @@ use("jayp0521/mason-null-ls.nvim") -- bridges gap b/w mason & null-ls
 	-- })
   --
 
-  use({
+--   use({
+--   "CopilotC-Nvim/CopilotChat.nvim",
+--   requires = {
+--     { "nvim-lua/plenary.nvim" },
+--     { "nvim-telescope/telescope.nvim" },
+--   },
+--   config = function()
+--     require("CopilotChat").setup({
+--       debug = true,
+--       show_help = true,
+--       prompts = {
+--         Explain = "Explain how it works by English language.",
+--         Review = "Review the following code and provide concise suggestions.",
+--         Tests = "Briefly explain how the selected code works, then generate unit tests.",
+--         Refactor = "Refactor the code to improve clarity and readability.",
+--       },
+--       -- Optionally set proxy and build functions if necessary
+--       build = function()
+--         vim.notify("Please update the remote plugins by running ':UpdateRemotePlugins', then restart Neovim.")
+--       end,
+--     })
+--   end,
+-- })
+  --
+use({ "github/copilot.vim" })
+use({
   "CopilotC-Nvim/CopilotChat.nvim",
-  requires = {
-    { "nvim-lua/plenary.nvim" },
-    { "nvim-telescope/telescope.nvim" },
-  },
-  config = function()
-    require("CopilotChat").setup({
-      debug = true,
-      show_help = true,
-      prompts = {
-        Explain = "Explain how it works by English language.",
-        Review = "Review the following code and provide concise suggestions.",
-        Tests = "Briefly explain how the selected code works, then generate unit tests.",
-        Refactor = "Refactor the code to improve clarity and readability.",
-      },
-      -- Optionally set proxy and build functions if necessary
-      proxy = "******", -- Optional: Set your proxy if needed
-      build = function()
-        vim.notify("Please update the remote plugins by running ':UpdateRemotePlugins', then restart Neovim.")
-      end,
-    })
-  end,
+  requires = { "nvim-lua/plenary.nvim" },
+})
+
+use({
+	"brianhuster/live-preview.nvim",
+	config = function()
+		require("live-preview").setup()
+	end,
 })
 
 	if packer_bootstrap then

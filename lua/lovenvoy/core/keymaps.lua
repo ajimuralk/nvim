@@ -7,6 +7,9 @@ local keymap = vim.keymap
 keymap.set("n", "<leader>hh", ":nohl<CR>")
 keymap.set("n", "x", '"_x')
 keymap.set("n", "<leader><C-s>", "<cmd>:w<CR>")
+keymap.set("n", "<leader>cr", ":let @+ = expand('%') | echo expand('%')<CR>") -- copy current file path to clipboard
+keymap.set("n", "<leader>ca", ":let @+ = expand('%:p') | echo expand('%:p')<CR>") -- copy current file absolute path to clipboard
+
 
 -- window management
 keymap.set("n", "<leader>sv", "<C-w>v") -- split window vertically
@@ -22,6 +25,10 @@ keymap.set("n", "<leader>tp", ":tabp<CR>") --  go to previous tab
 ----------------------
 -- Plugin Keybinds
 ----------------------
+
+--copilotchat
+keymap.set("n", "<leader>co", ":CopilotChatOpen <CR>") -- open copilot chat
+-- keymap.set("n", "<leader>Co", ":CopilotChatClose <CR>") -- close copilot chat
 --
 --Lspsaga
 keymap.set("n", "<leader>gd", "<cmd>Lspsaga goto_definition<CR>")
