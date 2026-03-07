@@ -4,7 +4,7 @@ if not ok then
 end
 
 copilotchat.setup({
-  temperature = 0.1,
+  temperature = 0.5,
   window = {
     layout = "vertical", -- 'vertical', 'horizontal', 'float'
     width = 0.5,

@@ -27,7 +27,7 @@ keymap.set("n", "<leader>tp", ":tabp<CR>") --  go to previous tab
 ----------------------
 
 --copilotchat
-keymap.set("n", "<leader>co", ":CopilotChatOpen <CR>") -- open copilot chat
+keymap.set("n", "<leader>cO", ":CopilotChatOpen <CR>") -- open copilot chat
 -- keymap.set("n", "<leader>Co", ":CopilotChatClose <CR>") -- close copilot chat
 --
 --Lspsaga
@@ -62,6 +62,7 @@ keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<cr>") -- list available 
 keymap.set("n", "<leader>fr", "<cmd>Telescope oldfiles<cr>") -- list recent files
 keymap.set("n", "<leader>fd", "<cmd>Telescope diagnostics<cr>") -- list workspace diagnostics files
 keymap.set("n", "<leader>ft", "<cmd>Telescope treesitter<cr>") -- list treesitter symbols
+keymap.set("n", "<leader>fq", "<cmd>Telescope quickfix<cr>") -- list treesitter symbols
 
 -- telescope git commands (not on youtube nvim video)
 keymap.set("n", "<leader>gc", "<cmd>Telescope git_commits<cr>") -- list all git commits (use <cr> to checkout) ["gc" for git commits]
