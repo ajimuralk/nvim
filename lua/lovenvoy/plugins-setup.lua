@@ -125,8 +125,7 @@ return packer.startup(function(use)
 	use("neovim/nvim-lspconfig") -- easily configure language servers
 	use("hrsh7th/cmp-nvim-lsp") -- for autocompletion
 	use({ "glepnir/lspsaga.nvim", branch = "main" }) -- enhanced lsp uis
-	use("jose-elias-alvarez/typescript.nvim") -- additional functionality for typescript server (e.g. rename file & update imports)
-	use("onsails/lspkind.nvim") -- vs-code like icons for autocompletion
+use("onsails/lspkind.nvim") -- vs-code like icons for autocompletion
 
 	-- formatting & linting
 --use("jose-elias-alvarez/null-ls.nvim") -- configure formatters & linters
@@ -167,47 +166,30 @@ use("jayp0521/mason-null-ls.nvim") -- bridges gap b/w mason & null-ls
 	-- fold
 	use({ "kevinhwang91/nvim-ufo", requires = "kevinhwang91/promise-async" })
 
-	-- vim.api.nvim_create_autocmd({ "FileType" }, {
-	-- 	callback = function()
-	-- 		if require("nvim-treesitter.parsers").has_parser() then
-	-- 			vim.opt.foldmethod = "expr"
-	-- 			vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
-	-- 		else
-	-- 			vim.opt.foldmethod = "syntax"
-	-- 		end
-	-- 	end,
-	-- })
-  --
-
---   use({
---   "CopilotC-Nvim/CopilotChat.nvim",
---   requires = {
---     { "nvim-lua/plenary.nvim" },
---     { "nvim-telescope/telescope.nvim" },
---   },
---   config = function()
---     require("CopilotChat").setup({
---       debug = true,
---       show_help = true,
---       prompts = {
---         Explain = "Explain how it works by English language.",
---         Review = "Review the following code and provide concise suggestions.",
---         Tests = "Briefly explain how the selected code works, then generate unit tests.",
---         Refactor = "Refactor the code to improve clarity and readability.",
---       },
---       -- Optionally set proxy and build functions if necessary
---       build = function()
---         vim.notify("Please update the remote plugins by running ':UpdateRemotePlugins', then restart Neovim.")
---       end,
---     })
---   end,
--- })
-  --
 use({ "github/copilot.vim" })
 use({
   "CopilotC-Nvim/CopilotChat.nvim",
   requires = { "nvim-lua/plenary.nvim" },
 })
+
+use({
+    "ravitemer/mcphub.nvim",
+    dependencies = {
+        "nvim-lua/plenary.nvim",
+    },
+    -- run = "npx -y mcp-remote@0.1.24 http://127.0.0.1:4000/tidewave/mcp",
+    build = "npm install -g mcp-hub@latest",  -- Installs `mcp-hub` node binary globally
+    config = function()
+        require("mcphub").setup()
+    end,
+})
+
+use {
+  'greggh/claude-code.nvim',
+  requires = {
+    'nvim-lua/plenary.nvim', -- Required for git operations
+  },
+}
 
 use({
 	"brianhuster/live-preview.nvim",
