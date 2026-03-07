@@ -99,6 +99,11 @@ _G.packer_plugins = {
     path = "/Users/landon/.local/share/nvim/site/pack/packer/start/alpha-nvim",
     url = "https://github.com/goolord/alpha-nvim"
   },
+  ["claude-code.nvim"] = {
+    loaded = true,
+    path = "/Users/landon/.local/share/nvim/site/pack/packer/start/claude-code.nvim",
+    url = "https://github.com/greggh/claude-code.nvim"
+  },
   ["cmp-buffer"] = {
     loaded = true,
     path = "/Users/landon/.local/share/nvim/site/pack/packer/start/cmp-buffer",
@@ -211,6 +216,12 @@ _G.packer_plugins = {
     path = "/Users/landon/.local/share/nvim/site/pack/packer/start/material.vim",
     url = "https://github.com/kaicataldo/material.vim"
   },
+  ["mcphub.nvim"] = {
+    config = { "\27LJ\2\n4\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\vmcphub\frequire\0" },
+    loaded = true,
+    path = "/Users/landon/.local/share/nvim/site/pack/packer/start/mcphub.nvim",
+    url = "https://github.com/ravitemer/mcphub.nvim"
+  },
   ["neo-tree.nvim"] = {
     loaded = true,
     path = "/Users/landon/.local/share/nvim/site/pack/packer/start/neo-tree.nvim",
@@ -320,11 +331,6 @@ _G.packer_plugins = {
     path = "/Users/landon/.local/share/nvim/site/pack/packer/start/toggleterm.nvim",
     url = "https://github.com/akinsho/toggleterm.nvim"
   },
-  ["typescript.nvim"] = {
-    loaded = true,
-    path = "/Users/landon/.local/share/nvim/site/pack/packer/start/typescript.nvim",
-    url = "https://github.com/jose-elias-alvarez/typescript.nvim"
-  },
   ["vim-maximizer"] = {
     loaded = true,
     path = "/Users/landon/.local/share/nvim/site/pack/packer/start/vim-maximizer",
@@ -353,6 +359,10 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
+-- Config for: lazygit.nvim
+time([[Config for lazygit.nvim]], true)
+try_loadstring("\27LJ\2\nL\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0'\2\3\0B\0\2\1K\0\1\0\flazygit\19load_extension\14telescope\frequire\0", "config", "lazygit.nvim")
+time([[Config for lazygit.nvim]], false)
 -- Config for: toggleterm.nvim
 time([[Config for toggleterm.nvim]], true)
 try_loadstring("\27LJ\2\n8\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\15toggleterm\frequire\0", "config", "toggleterm.nvim")
@@ -365,10 +375,10 @@ time([[Config for telescope.nvim]], false)
 time([[Config for live-preview.nvim]], true)
 try_loadstring("\27LJ\2\n:\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\17live-preview\frequire\0", "config", "live-preview.nvim")
 time([[Config for live-preview.nvim]], false)
--- Config for: lazygit.nvim
-time([[Config for lazygit.nvim]], true)
-try_loadstring("\27LJ\2\nL\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0'\2\3\0B\0\2\1K\0\1\0\flazygit\19load_extension\14telescope\frequire\0", "config", "lazygit.nvim")
-time([[Config for lazygit.nvim]], false)
+-- Config for: mcphub.nvim
+time([[Config for mcphub.nvim]], true)
+try_loadstring("\27LJ\2\n4\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\vmcphub\frequire\0", "config", "mcphub.nvim")
+time([[Config for mcphub.nvim]], false)
 -- Load plugins in order defined by `after`
 time([[Sequenced loading]], true)
 vim.cmd [[ packadd nvim-treesitter ]]
