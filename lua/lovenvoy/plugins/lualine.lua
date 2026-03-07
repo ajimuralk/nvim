@@ -23,13 +23,25 @@ local function short_branch()
   return branch
 end
 
+local function git_repo()
+  local toplevel = vim.fn.system('git rev-parse --show-toplevel')
+  if vim.v.shell_error ~= 0 then
+    return ''
+  end
+  local repo = vim.fn.fnamemodify(toplevel:gsub('[\r\n]+', ''), ':t')
+  if repo ~= '' then
+    return ' ' .. repo
+  end
+  return ''
+end
+
 -- configure lualine with modified theme
 lualine.setup({
 	options = {
 		theme = "nord",
 	},
 	sections = {
-		lualine_b = { short_branch, "diff", "diagnostics" },
+		lualine_b = { git_repo, short_branch, "diff", "diagnostics" },
 		lualine_c = {
 			-- {
 			-- 	"filename",
@@ -38,5 +50,6 @@ lualine.setup({
 			-- },
 			{ git_blame.get_current_blame_text, cond = git_blame.is_blame_text_available },
 		},
-	},
+		lualine_x = {"filetype"},
+  }
 })
