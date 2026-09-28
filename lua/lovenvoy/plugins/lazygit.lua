@@ -20,3 +20,24 @@ let g:lazygit_floating_window_border_corners = ['╭', '╮', '╰', '╯'] " --
 let g:lazygit_floating_window_use_plenary = 0 " -- use plenary.nvim to manage floating window if available
 let g:lazygit_use_neovim_remote = 1 " --fallback to 0 if neovim-remote is not installed
 ]])
+
+-- open files from lazygit's `e` in the window lazygit was launched from (see os.edit in lazygit config.yml)
+local pending_edit = nil
+
+function LazygitOpenAfterExit(file, line)
+	pending_edit = { file = file, line = tonumber(line) or 1 }
+	return ""
+end
+
+vim.g.lazygit_on_exit_callback = function()
+	if not pending_edit then
+		return
+	end
+	local edit = pending_edit
+	pending_edit = nil
+	vim.schedule(function()
+		vim.cmd.edit(vim.fn.fnameescape(edit.file))
+		pcall(vim.api.nvim_win_set_cursor, 0, { edit.line, 0 })
+		vim.cmd("normal! zz")
+	end)
+end
